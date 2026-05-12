@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonate | Deep Pine Gallery</title>
+    <style>
+        :root {
+            --pine-black: #0B1208;
+            --deep-forest: #1A2F15;
+            --moss-green: #384921;
+            --sun-gold: #FFD700;
+            --soft-gold: #D4AF37;
+            --bark-brown: #2C1E14;
+            --text-light: #E0E2DB;
+        }
+
+        body {
+            background-color: var(--pine-black);
+            margin: 0; padding: 0; overflow-x: hidden;
+            font-family: 'Georgia', serif;
+            color: var(--text-light);
+        }
+
+        .scripture-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+            opacity: 0.25; 
+            padding: 20px;
+            font-size: 1.1rem;
+            line-height: 2.5; 
+            color: var(--soft-gold);
+            pointer-events: none;
+            text-align: justify;
+            word-wrap: break-word;
+            letter-spacing: 1px;
+        }
+
+        .nature-overlay {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: 
+                linear-gradient(to top, var(--pine-black) 5%, transparent 40%),
+                radial-gradient(circle at 80% 10%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .sunrays {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: repeating-conic-gradient(
+                from 15deg at 80% -10%,
+                transparent 0deg 10deg,
+                rgba(255, 215, 0, 0.03) 15deg 20deg
+            );
+            pointer-events: none;
+        }
+
+        .wrapper {
+            padding: 60px 18%; 
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            color: var(--sun-gold);
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            letter-spacing: 5px;
+        }
+
+        .subtitle {
+            color: var(--soft-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .mosaic-container {
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .card {
+            background: rgba(26, 47, 21, 0.9); 
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            break-inside: avoid;
+        }
+        .card:hover { transform: scale(1.02); border-color: var(--sun-gold); }
+        .card-content { padding: 30px; }
+        
+        .quote-text { 
+            line-height: 1.6; 
+            color: #FFFFFF; 
+            font-size: 1.3rem;
+            font-style: italic; 
+            white-space: pre-wrap; 
+            margin: 0; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .audio-module {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 40px;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            break-inside: avoid;
+        }
+        .audio-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--soft-gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+        audio {
+            width: 100%;
+            height: 32px;
+            filter: sepia(1) saturate(2) hue-rotate(40deg); 
+        }
+
+        .image-module {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 40px;
+            break-inside: avoid;
+        }
+        .image-module img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        @media (max-width: 1000px) {
+            .wrapper { padding: 40px 5%; }
+            .mosaic-container { column-count: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="scripture-bg" id="bgVerses"></div>
+<div class="nature-overlay"></div>
+<div class="sunrays"></div>
+
+<div class="wrapper">
+    <header>
+        <h1>RESONATE</h1>
+        <div class="subtitle">The Glory of the Pine & The Light</div>
+    </header>
+
+    <div class="mosaic-container">
+        
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">“Music is the art of the prophets and the gift of God.” — Martin Luther</p>
+            </div>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: Evergreen</span>
+            <audio controls src="evergreen.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: More More More</span>
+            <audio controls src="more_more_more.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: Hallelujah</span>
+            <audio controls src="hallelujah.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: We Will Dance Again</span>
+            <audio controls src="dance_again.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: Alone</span>
+            <audio controls src="alone.mp3"></audio>
+        </div>
+
+        <div class="image-module">
+            <img src="bob_dylan.jpg" alt="Bob Dylan Quote">
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">“There is nothing in the world so much like prayer as music is.” — William Shakespeare</p>
+            </div>
+        </div>
+
+        <div class="image-module">
+            <img src="swiss_woods.png" alt="Swiss Woods Landscape">
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">“Is anyone among you suffering? Let him pray. Is anyone cheerful? Let him sing praise.” - James 5:13 (ESV)</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">“Sing to him a new song; play skillfully on the strings, with loud shouts.” - Psalm 33:3 (ESV)</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">“My lyre is turned to mourning, and my pipe to the voice of those who weep.” - Job 30:31 (ESV)</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">I did my best, it wasn't much
+I couldn't feel, so I tried to touch
+I've told the truth, I didn't come to fool you
+And even though it all went wrong
+I'll stand before the Lord of Song
+With nothing on my tongue but Hallelujah</p>
+            </div>
+        </div>
+
+        <div class="image-module">
+            <img src="alone_tbt.png" alt="Alone Artwork">
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="quote-text">Come into the world alone
+And you go out of the world alone
+But in between, theres you and me</p>
+            </div>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: Stable Song</span>
+            <audio controls src="stable_song.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: Swiss Woods</span>
+            <audio controls src="swiss_woods.mp3"></audio>
+        </div>
+
+        <div class="audio-module">
+            <span class="audio-label">Listening: End of August</span>
+            <audio controls src="end_of_august.mp3"></audio>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const verses = [
+        "“Sing to the Lord a new song; sing to the Lord, all the earth.”",
+        "“Let everything that has breath praise the Lord. Praise the Lord.”",
+        "“Speak to one another with psalms, hymns, and spiritual songs, singing and making melody in your heart to the Lord.”",
+        "“Let the word of Christ dwell in you richly… singing psalms and hymns and spiritual songs, with thankfulness in your hearts to God.”",
+        "“Praise him with trumpet sound; praise him with lute and harp.”",
+        "“Oh come, let us sing to the Lord; let us make a joyful noise to the rock of our salvation!”",
+        "“My heart is steadfast, O God! I will sing and make melody with all my being!”",
+        "“Is anyone cheerful? Let him sing praise.”",
+        "“He put a new song in my mouth, a song of praise to our God.”",
+        "“Sing to him, sing praises to him; tell of all his wondrous works!”"
+    ];
+
+    const bg = document.getElementById('bgVerses');
+    const spacer = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    const allWords = verses.join(" ").split(" ");
+    const fluidText = allWords.join(spacer);
+    bg.innerHTML = (fluidText + spacer).repeat(25);
+</script>
+
+</body>
+</html>
